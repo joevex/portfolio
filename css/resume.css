@@ -1973,8 +1973,151 @@ body {
 
     }
 
-<<<<<<< HEAD
+/* =========================================================
+   MOBILE RESPONSIVE — RESUME
+   Desktop design remains unchanged
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .resume-section {
+        width: 100%;
+        min-height: 100vh;
+        overflow-x: hidden;
+        padding: 70px 16px 60px;
+    }
+
+    /* AI HERO */
+    .resume-intro {
+        width: 100%;
+        text-align: center;
+        padding: 0 8px;
+    }
+
+    .system-status {
+        font-size: 10px;
+        letter-spacing: 4px;
+    }
+
+    .resume-intro h2 {
+        font-size: clamp(2.3rem, 10vw, 4rem) !important;
+        line-height: 0.95 !important;
+        letter-spacing: -0.045em !important;
+        word-break: normal;
+        white-space: normal;
+    }
+
+    .resume-intro p {
+        font-size: 14px;
+        line-height: 1.7;
+        margin-top: 22px;
+        padding: 0 10px;
+    }
+
+    .resume-intro p small {
+        font-size: 12px;
+    }
+
+    /* RESUME VIEWER */
+    .ai-resume-system {
+        width: 100%;
+        max-width: 100%;
+        margin: 45px auto 0;
+        padding: 14px;
+        overflow: hidden;
+    }
+
+    .resume-top-bar,
+    .resume-bottom-bar {
+        font-size: 8px;
+        letter-spacing: 1.5px;
+        gap: 10px;
+    }
+
+    /* ACTUAL RESUME IMAGE */
+    .resume-image-frame {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .resume-image {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        object-fit: contain;
+    }
+
+    /* QUOTES */
+    .ai-quote {
+        position: relative;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+
+        width: 100%;
+        max-width: 280px;
+        margin: 28px auto;
+    }
+
+    .quote-one,
+    .quote-two,
+    .quote-three {
+        transform: none !important;
+    }
+
+    /* ORBITS */
+    .ai-orbit {
+        opacity: 0.35;
+        pointer-events: none;
+    }
+
+    /* BUTTONS */
+    .resume-actions {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-top: 35px;
+    }
+
+    .ai-button {
+        width: min(100%, 300px);
+        justify-content: center;
+    }
 }
-=======
+
+
+/* SMALL PHONES */
+@media (max-width: 480px) {
+
+    .resume-section {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .resume-intro h2 {
+        font-size: clamp(2rem, 9vw, 3rem) !important;
+    }
+
+    .resume-intro p {
+        font-size: 13px;
+    }
+
+    .ai-resume-system {
+        padding: 10px;
+        margin-top: 35px;
+    }
+
+    .resume-top-bar,
+    .resume-bottom-bar {
+        font-size: 7px;
+    }
+
+    .ai-quote {
+        max-width: 240px;
+    }
 }
->>>>>>> bc349bce2e1dbbce2b1855b2869b7e1b54fb47e9
