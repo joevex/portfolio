@@ -1,0 +1,58 @@
+/*=========================================
+            GRID BACKGROUND
+=========================================*/
+
+.grid-bg{
+    position: fixed;
+    inset: 0;
+    z-index: -4;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: .12;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+
+    background-size: 50px 50px;
+
+    mask-image: radial-gradient(circle at center,
+        black 30%,
+        transparent 90%);
+}
+
+.grid-bg::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-20%;
+
+    background:
+    linear-gradient(
+        45deg,
+        transparent,
+        rgba(59,130,246,.08),
+        transparent
+    );
+
+    animation:gridMove 20s linear infinite;
+
+}
+
+@keyframes gridMove{
+
+    from{
+
+        transform:translateX(-20%) translateY(-20%);
+
+    }
+
+    to{
+
+        transform:translateX(20%) translateY(20%);
+
+    }
+
+}

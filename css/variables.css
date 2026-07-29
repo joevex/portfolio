@@ -1,0 +1,188 @@
+/*==================================================
+                GOOGLE FONTS
+==================================================*/
+
+:root{
+
+/*=========================================
+                COLORS
+=========================================*/
+
+--clr-bg:#050505;
+
+--clr-surface:#0b0b0b;
+
+--clr-card:rgba(255,255,255,.05);
+
+--clr-card-hover:rgba(255,255,255,.08);
+
+--clr-border:rgba(255,255,255,.08);
+
+--clr-white:#ffffff;
+
+--clr-text:#f5f5f5;
+
+--clr-muted:#9ca3af;
+
+--clr-accent:#3b82f6;
+
+--clr-accent-light:#60a5fa;
+
+--clr-success:#22c55e;
+
+--clr-danger:#ef4444;
+
+/*=========================================
+                GRADIENTS
+=========================================*/
+
+--gradient-primary:
+linear-gradient(
+135deg,
+#3b82f6 0%,
+#2563eb 100%
+);
+
+--gradient-glass:
+linear-gradient(
+135deg,
+rgba(255,255,255,.08),
+rgba(255,255,255,.02)
+);
+
+--gradient-dark:
+linear-gradient(
+180deg,
+#050505 0%,
+#090909 100%
+);
+
+/*=========================================
+                TYPOGRAPHY
+=========================================*/
+
+--ff-body:
+'Inter',
+sans-serif;
+
+--ff-heading:
+'Space Grotesk',
+sans-serif;
+
+/*=========================================
+                FONT SIZE
+=========================================*/
+
+--fs-xs:.75rem;
+
+--fs-sm:.875rem;
+
+--fs-base:1rem;
+
+--fs-md:1.125rem;
+
+--fs-lg:1.25rem;
+
+--fs-xl:1.5rem;
+
+--fs-2xl:2rem;
+
+--fs-3xl:3rem;
+
+--fs-display:
+clamp(3.8rem,9vw,7rem);
+
+/*=========================================
+                FONT WEIGHT
+=========================================*/
+
+--fw-light:300;
+
+--fw-normal:400;
+
+--fw-medium:500;
+
+--fw-semibold:600;
+
+--fw-bold:700;
+
+--fw-black:800;
+
+/*=========================================
+                SPACING
+=========================================*/
+
+--space-xs:.5rem;
+
+--space-sm:1rem;
+
+--space-md:1.5rem;
+
+--space-lg:2rem;
+
+--space-xl:3rem;
+
+--space-2xl:5rem;
+
+--space-3xl:8rem;
+
+/*=========================================
+                CONTAINER
+=========================================*/
+
+--container-width:1280px;
+
+--section-padding:160px;
+
+/*=========================================
+                RADIUS
+=========================================*/
+
+--radius-sm:10px;
+
+--radius-md:18px;
+
+--radius-lg:30px;
+
+--radius-full:999px;
+
+/*=========================================
+                SHADOWS
+=========================================*/
+
+--shadow-sm:
+0 5px 20px rgba(0,0,0,.25);
+
+--shadow-md:
+0 15px 40px rgba(0,0,0,.35);
+
+--shadow-lg:
+0 30px 80px rgba(0,0,0,.45);
+
+--shadow-glow:
+0 0 40px rgba(59,130,246,.25);
+
+/*=========================================
+                GLASS
+=========================================*/
+
+--glass-bg:
+rgba(255,255,255,.05);
+
+--glass-border:
+1px solid rgba(255,255,255,.08);
+
+--glass-blur:
+blur(18px);
+
+/*=========================================
+                TRANSITIONS
+=========================================*/
+
+--transition-fast:.25s ease;
+
+--transition-normal:.4s ease;
+
+--transition-slow:.7s cubic-bezier(.22,1,.36,1);
+
+}

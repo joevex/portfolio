@@ -1,0 +1,396 @@
+/*==================================================
+                FADE UP
+==================================================*/
+
+.fade-up{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+}
+
+.fade-up.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    transition:all .9s cubic-bezier(.22,1,.36,1);
+
+}
+
+/*==================================================
+                FADE LEFT
+==================================================*/
+
+.fade-left{
+
+    opacity:0;
+
+    transform:translateX(-60px);
+
+}
+
+.fade-left.show{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+    transition:all .9s cubic-bezier(.22,1,.36,1);
+
+}
+
+/*==================================================
+                FADE RIGHT
+==================================================*/
+
+.fade-right{
+
+    opacity:0;
+
+    transform:translateX(60px);
+
+}
+
+.fade-right.show{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+    transition:all .9s cubic-bezier(.22,1,.36,1);
+
+}
+
+/*==================================================
+                SCALE
+==================================================*/
+
+.scale-in{
+
+    opacity:0;
+
+    transform:scale(.9);
+
+}
+
+.scale-in.show{
+
+    opacity:1;
+
+    transform:scale(1);
+
+    transition:all .8s ease;
+
+}
+
+/*==================================================
+                FLOAT
+==================================================*/
+
+@keyframes floating{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-15px);
+
+    }
+
+}
+
+.floating-card{
+
+    animation:floating 5s ease-in-out infinite;
+
+}
+
+.card-two{
+
+    animation-delay:1.5s;
+
+}
+
+.card-three{
+
+    animation-delay:3s;
+
+}
+
+/*==================================================
+                IMAGE HOVER
+==================================================*/
+
+.image-wrapper img{
+
+    transition:transform .8s ease;
+
+}
+
+.image-wrapper:hover img{
+
+    transform:scale(1.06);
+
+}
+
+/*==================================================
+                BUTTON HOVER
+==================================================*/
+
+.btn{
+
+    transition:all .35s ease;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/*==================================================
+                GLASS CARD
+==================================================*/
+
+.glass-card{
+
+    transition:all .4s ease;
+
+}
+
+.glass-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+/*==================================================
+                PROJECT IMAGE
+==================================================*/
+
+.project-preview{
+
+    overflow:hidden;
+
+    border-radius:32px;
+
+}
+
+.project-preview img{
+
+    transition:transform .8s ease;
+
+}
+
+.project-preview:hover img{
+
+    transform:scale(1.05);
+
+}
+
+/*==================================================
+                LOADER
+==================================================*/
+
+.loader{
+
+    transition:opacity .8s ease,
+               visibility .8s ease;
+
+}
+
+.loader.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+}
+
+/*==================================================
+                CURSOR
+==================================================*/
+
+.cursor{
+
+    transition:
+        transform .15s linear,
+        width .25s ease,
+        height .25s ease;
+
+}
+
+.cursor.active{
+
+    width:60px;
+
+    height:60px;
+
+}
+
+/*==================================================
+                AURORA
+==================================================*/
+
+.aurora{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:-2;
+
+}
+
+.aurora span{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    animation:auroraMove 16s linear infinite;
+
+}
+
+.aurora-1{
+
+    width:450px;
+
+    height:450px;
+
+    background:rgba(59,130,246,.18);
+
+    top:-150px;
+
+    left:-120px;
+
+}
+
+.aurora-2{
+
+    width:500px;
+
+    height:500px;
+
+    background:rgba(99,102,241,.16);
+
+    right:-150px;
+
+    top:25%;
+
+}
+
+.aurora-3{
+
+    width:450px;
+
+    height:450px;
+
+    background:rgba(34,197,94,.12);
+
+    bottom:-180px;
+
+    left:35%;
+
+}
+
+@keyframes auroraMove{
+
+    0%{
+
+        transform:translate(0,0) scale(1);
+
+    }
+
+    50%{
+
+        transform:translate(60px,-40px) scale(1.15);
+
+    }
+
+    100%{
+
+        transform:translate(0,0) scale(1);
+
+    }
+
+}
+/* =========================================
+   LOADER
+========================================= */
+
+body.loading {
+    overflow: hidden;
+}
+
+.loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #050505;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+.loader.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-content > span {
+    display: block;
+
+    margin-bottom: 25px;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    letter-spacing: 5px;
+    text-transform: uppercase;
+
+    color: #9ca3af;
+}
+
+.loader-content h1 {
+    margin: 0;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(42px, 7vw, 90px);
+    font-weight: 700;
+
+    letter-spacing: -3px;
+
+    color: #f5f5f5;
+}
+
+.loader-content h1 span {
+    color: #3478f6;
+}

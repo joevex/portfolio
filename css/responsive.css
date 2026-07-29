@@ -1,0 +1,730 @@
+/*==================================================
+                LARGE LAPTOP
+==================================================*/
+
+@media (max-width:1200px){
+
+    .hero-grid,
+    .story-grid,
+    .mindset-grid,
+    .project-showcase{
+
+        gap:60px;
+
+    }
+
+    .hero h1{
+
+        font-size:clamp(3.5rem,8vw,6rem);
+
+    }
+
+    .image-wrapper{
+
+        width:420px;
+
+    }
+
+}
+
+/*==================================================
+                TABLET
+==================================================*/
+
+@media (max-width:992px){
+
+    .section{
+
+        padding:120px 0;
+
+    }
+
+    .hero{
+
+        min-height:auto;
+
+        padding-top:160px;
+
+    }
+
+    .hero-grid,
+    .story-grid,
+    .mindset-grid,
+    .project-showcase{
+
+        grid-template-columns:1fr;
+
+        gap:70px;
+
+    }
+
+    .hero-content{
+
+        text-align:center;
+
+        align-items:center;
+
+    }
+
+    .hero-description{
+
+        max-width:700px;
+
+    }
+
+    .hero-buttons{
+
+        justify-content:center;
+
+    }
+
+    .project-info{
+
+        text-align:center;
+
+    }
+
+    .project-tech{
+
+        justify-content:center;
+
+    }
+
+    .contact-wrapper{
+
+        padding:60px 35px;
+
+    }
+
+    .floating-card{
+
+        display:none;
+
+    }
+
+}
+
+/*==================================================
+                MOBILE NAVIGATION
+==================================================*/
+
+@media (max-width:768px){
+
+    .menu-toggle{
+
+        display:flex;
+
+    }
+
+    .nav-links{
+
+        position:fixed;
+
+        top:90px;
+
+        left:50%;
+
+        transform:translateX(-50%) translateY(-20px);
+
+        width:92%;
+
+        background:rgba(8,8,8,.95);
+
+        backdrop-filter:blur(20px);
+
+        border:1px solid rgba(255,255,255,.08);
+
+        border-radius:24px;
+
+        flex-direction:column;
+
+        padding:30px;
+
+        gap:22px;
+
+        opacity:0;
+
+        visibility:hidden;
+
+        transition:.35s;
+
+    }
+
+    .nav-links.active{
+
+        opacity:1;
+
+        visibility:visible;
+
+        transform:translateX(-50%) translateY(0);
+
+    }
+
+    .navbar>.btn{
+
+        display:none;
+
+    }
+
+    .hero h1{
+
+        font-size:clamp(3rem,12vw,4.5rem);
+
+        letter-spacing:-2px;
+
+    }
+
+    .section-title{
+
+        font-size:clamp(2.2rem,9vw,3.5rem);
+
+    }
+
+    .vision-title{
+
+        font-size:clamp(3rem,12vw,5rem);
+
+    }
+
+    .image-wrapper{
+
+        width:100%;
+
+        max-width:360px;
+
+    }
+
+    .timeline-item{
+
+        padding-left:55px;
+
+    }
+
+    .timeline::before{
+
+        left:15px;
+
+    }
+
+    .timeline-dot{
+
+        left:7px;
+
+    }
+
+}
+
+/*==================================================
+                SMALL MOBILE
+==================================================*/
+
+@media (max-width:576px){
+
+    .container{
+
+        width:94%;
+
+    }
+
+    .section{
+
+        padding:90px 0;
+
+    }
+
+    .hero{
+
+        padding-top:140px;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        width:100%;
+
+    }
+
+    .btn{
+
+        width:100%;
+
+    }
+
+    .contact-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .footer-socials{
+
+        flex-wrap:wrap;
+
+        gap:18px;
+
+    }
+
+    .contact-wrapper{
+
+        padding:40px 20px;
+
+    }
+
+    .glass-card,
+
+    .story-card,
+
+    .timeline-content{
+
+        padding:24px;
+
+    }
+
+}
+/*==================================================
+                LENIS SMOOTH SCROLL
+==================================================*/
+
+const lenis = new Lenis({
+
+    duration: 1.2,
+
+    smoothWheel: true,
+
+    touchMultiplier: 1.5
+
+});
+
+function raf(time) {
+
+    lenis.raf(time);
+
+    requestAnimationFrame(raf);
+
+}
+
+requestAnimationFrame(raf);
+
+/*==================================================
+                LOADER
+==================================================*/
+
+window.addEventListener("load", () => {
+
+    const loader = document.querySelector(".loader");
+
+    setTimeout(() => {
+
+        loader.classList.add("hide");
+
+    }, 1200);
+
+});
+
+/*==================================================
+                STICKY NAVBAR
+==================================================*/
+
+const header = document.querySelector(".header");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 80) {
+
+        header.classList.add("scrolled");
+
+    } else {
+
+        header.classList.remove("scrolled");
+
+    }
+
+});
+
+/*==================================================
+                SCROLL PROGRESS
+==================================================*/
+
+const progress = document.querySelector(".scroll-progress");
+
+window.addEventListener("scroll", () => {
+
+    const totalHeight =
+
+        document.documentElement.scrollHeight -
+
+        window.innerHeight;
+
+    const progressHeight =
+
+        (window.scrollY / totalHeight) * 100;
+
+    progress.style.width = progressHeight + "%";
+
+});
+
+/*==================================================
+                MOBILE MENU
+==================================================*/
+
+const menuToggle = document.querySelector(".menu-toggle");
+
+const navLinks = document.querySelector(".nav-links");
+
+if (menuToggle) {
+
+    menuToggle.addEventListener("click", () => {
+
+        navLinks.classList.toggle("active");
+
+        menuToggle.classList.toggle("active");
+
+    });
+
+}
+
+document.querySelectorAll(".nav-link").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+
+        menuToggle.classList.remove("active");
+
+    });
+
+});
+
+/*==================================================
+                ACTIVE NAV LINK
+==================================================*/
+
+const sections = document.querySelectorAll("section");
+
+const navItems = document.querySelectorAll(".nav-link");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 150;
+
+        if (window.scrollY >= sectionTop) {
+
+            current = section.getAttribute("id");
+
+        }
+
+    });
+
+    navItems.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + current) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+});
+
+/*==================================================
+                CUSTOM CURSOR
+==================================================*/
+
+const cursor = document.querySelector(".cursor");
+
+const cursorDot = document.querySelector(".cursor-dot");
+
+window.addEventListener("mousemove", e => {
+
+    cursor.style.left = e.clientX + "px";
+
+    cursor.style.top = e.clientY + "px";
+
+    cursorDot.style.left = e.clientX + "px";
+
+    cursorDot.style.top = e.clientY + "px";
+
+});
+
+document.querySelectorAll("a, button").forEach(item => {
+
+    item.addEventListener("mouseenter", () => {
+
+        cursor.classList.add("active");
+
+    });
+
+    item.addEventListener("mouseleave", () => {
+
+        cursor.classList.remove("active");
+
+    });
+
+});
+
+/*==================================================
+                GSAP HERO
+==================================================*/
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from(".hero-label", {
+
+    y: 50,
+
+    opacity: 0,
+
+    duration: 1
+
+});
+
+gsap.from(".hero h1", {
+
+    y: 70,
+
+    opacity: 0,
+
+    duration: 1.2,
+
+    delay: 0.2
+
+});
+
+gsap.from(".hero-description", {
+
+    y: 50,
+
+    opacity: 0,
+
+    duration: 1,
+
+    delay: 0.4
+
+});
+
+gsap.from(".hero-buttons", {
+
+    y: 40,
+
+    opacity: 0,
+
+    duration: 1,
+
+    delay: 0.6
+
+});
+
+gsap.from(".image-wrapper", {
+
+    scale: .9,
+
+    opacity: 0,
+
+    duration: 1.3,
+
+    delay: .4
+
+});
+
+/*==================================================
+                REVEAL ON SCROLL
+==================================================*/
+
+const revealItems = document.querySelectorAll(
+
+    ".story-card, .glass-card, .project-showcase, .timeline-item, .contact-wrapper"
+
+);
+
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+}, {
+
+    threshold: .15
+
+});
+
+revealItems.forEach(item => {
+
+    item.classList.add("fade-up");
+
+    observer.observe(item);
+
+});
+
+/*==================================================
+                VANILLA TILT
+==================================================*/
+
+VanillaTilt.init(
+
+    document.querySelectorAll(
+
+        ".glass-card, .story-card, .timeline-content"
+
+    ),
+
+    {
+
+        max: 6,
+
+        speed: 400,
+
+        glare: true,
+
+        "max-glare": .15
+
+    }
+
+);
+
+/*==================================================
+                PARALLAX IMAGE
+==================================================*/
+
+window.addEventListener("scroll", () => {
+
+    const image = document.querySelector(".image-wrapper");
+
+    if (!image) return;
+
+    const offset = window.pageYOffset;
+
+    image.style.transform = `translateY(${offset * 0.08}px)`;
+
+});
+
+/*==================================================
+                YEAR
+==================================================*/
+
+const year = document.querySelector(".current-year");
+
+if (year) {
+
+    year.textContent = new Date().getFullYear();
+
+}
+/* =====================================================
+   FINAL HERO IMAGE SIZE FIX
+   Joshua Manish Portfolio
+===================================================== */
+
+.hero .hero-image {
+    width: 420px !important;
+    max-width: 420px !important;
+    height: 520px !important;
+
+    position: relative !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    margin: 0 auto !important;
+}
+
+.hero .image-wrapper {
+    width: 300px !important;
+    max-width: 300px !important;
+
+    height: 400px !important;
+    max-height: 400px !important;
+
+    margin: 0 auto !important;
+
+    overflow: hidden !important;
+
+    border-radius: 28px !important;
+
+    position: relative !important;
+
+    transform: none !important;
+}
+
+.hero .image-wrapper img {
+    width: 100% !important;
+    height: 100% !important;
+
+    max-width: none !important;
+
+    object-fit: cover !important;
+    object-position: center top !important;
+
+    display: block !important;
+}
+
+
+/* Floating cards */
+
+.hero .floating-card {
+    z-index: 10 !important;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .hero .hero-image {
+        width: 380px !important;
+        max-width: 380px !important;
+        height: 480px !important;
+    }
+
+    .hero .image-wrapper {
+        width: 280px !important;
+        max-width: 280px !important;
+
+        height: 370px !important;
+        max-height: 370px !important;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .hero .hero-image {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        height: 430px !important;
+    }
+
+    .hero .image-wrapper {
+        width: 250px !important;
+        max-width: 250px !important;
+
+        height: 330px !important;
+        max-height: 330px !important;
+
+        border-radius: 24px !important;
+    }
+
+}

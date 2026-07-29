@@ -1,0 +1,52 @@
+/*=========================================
+        AURORA BACKGROUND
+=========================================*/
+
+.gradient-bg{
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -5;
+    background: #050505;
+}
+
+.gradient-bg::before,
+.gradient-bg::after{
+    content: "";
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: .18;
+    animation: auroraMove 18s ease-in-out infinite alternate;
+}
+
+.gradient-bg::before{
+    top: -250px;
+    left: -200px;
+    background: #2563eb;
+}
+
+.gradient-bg::after{
+    bottom: -250px;
+    right: -200px;
+    background: #7c3aed;
+    animation-delay: 6s;
+}
+
+@keyframes auroraMove{
+
+    0%{
+        transform: translate(0,0) scale(1);
+    }
+
+    50%{
+        transform: translate(120px,-80px) scale(1.2);
+    }
+
+    100%{
+        transform: translate(-100px,100px) scale(.9);
+    }
+
+}
