@@ -108,25 +108,7 @@ Technologies: `Python` `AI/ML` `LSTM` `CNN`
 
 ---
 
-### 📄 AI Resume Analyzer
 
-An AI based concept for analyzing resumes and suggesting improvements for an effective professional profile
-
-Key Features
-
-Resume Analyzer
-
-AI Based Suggestions
-
-Skill Recognition
-
-Resume Improvement
-
-Streamlit App
-
-Technologies: `Python` `OpenAI API` `Streamlit`
-
----
 
 ### 🐔 Smart Chicken Farm IoT
 
