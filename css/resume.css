@@ -1,0 +1,1969 @@
+/* =========================================================
+   JARVIS RESUME SYSTEM
+   IRON MAN / HOLOGRAPHIC HUD STYLE
+========================================================= */
+
+:root {
+
+    --hud-blue: #3185ff;
+    --hud-blue-light: #72b4ff;
+    --hud-cyan: #4ddcff;
+
+    --bg-black: #020408;
+    --bg-blue: #050b15;
+
+    --text-main: #f3f7ff;
+    --text-soft: #8b9ab3;
+
+    --line: rgba(73, 142, 255, 0.22);
+
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+    padding: 0;
+
+    background: var(--bg-black);
+
+    color: var(--text-main);
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =========================================================
+   MAIN SECTION
+========================================================= */
+
+.jarvis-resume {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding:
+        28px
+        45px
+        35px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 48%,
+            rgba(20, 65, 130, 0.15),
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(0, 70, 140, 0.10),
+            transparent 35%
+        ),
+
+        #020408;
+
+}
+
+
+/* =========================================================
+   HUD GRID
+========================================================= */
+
+.hud-grid {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.35;
+
+    background-image:
+
+        linear-gradient(
+            rgba(70, 130, 220, 0.10) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(70, 130, 220, 0.10) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        55px 55px;
+
+    mask-image:
+        radial-gradient(
+            circle at center,
+            black,
+            transparent 85%
+        );
+
+}
+
+
+/* =========================================================
+   BACKGROUND GLOW
+========================================================= */
+
+.hud-glow {
+
+    position: absolute;
+
+    width: 550px;
+    height: 550px;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    pointer-events: none;
+
+    opacity: 0.10;
+
+}
+
+.glow-one {
+
+    top: 20%;
+    left: 32%;
+
+    background: #1671ff;
+
+}
+
+.glow-two {
+
+    bottom: -15%;
+    right: 5%;
+
+    background: #00aaff;
+
+}
+
+
+/* =========================================================
+   CORNER LINES
+========================================================= */
+
+.corner-line {
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    pointer-events: none;
+
+    opacity: 0.6;
+
+}
+
+.corner-line::before,
+.corner-line::after {
+
+    content: "";
+
+    position: absolute;
+
+    background: var(--hud-blue);
+
+}
+
+.top-left {
+
+    top: 18px;
+    left: 18px;
+
+}
+
+.top-left::before {
+
+    width: 100px;
+    height: 1px;
+
+    top: 0;
+    left: 0;
+
+}
+
+.top-left::after {
+
+    width: 1px;
+    height: 100px;
+
+    top: 0;
+    left: 0;
+
+}
+
+
+.top-right {
+
+    top: 18px;
+    right: 18px;
+
+}
+
+.top-right::before {
+
+    width: 100px;
+    height: 1px;
+
+    top: 0;
+    right: 0;
+
+}
+
+.top-right::after {
+
+    width: 1px;
+    height: 100px;
+
+    top: 0;
+    right: 0;
+
+}
+
+
+.bottom-left {
+
+    bottom: 18px;
+    left: 18px;
+
+}
+
+.bottom-left::before {
+
+    width: 100px;
+    height: 1px;
+
+    bottom: 0;
+    left: 0;
+
+}
+
+.bottom-left::after {
+
+    width: 1px;
+    height: 100px;
+
+    bottom: 0;
+    left: 0;
+
+}
+
+
+.bottom-right {
+
+    bottom: 18px;
+    right: 18px;
+
+}
+
+.bottom-right::before {
+
+    width: 100px;
+    height: 1px;
+
+    bottom: 0;
+    right: 0;
+
+}
+
+.bottom-right::after {
+
+    width: 1px;
+    height: 100px;
+
+    bottom: 0;
+    right: 0;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.jarvis-header {
+
+    position: relative;
+
+    z-index: 10;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        auto
+        1fr;
+
+    align-items: center;
+
+    border-bottom:
+        1px solid
+        var(--line);
+
+    padding-bottom: 18px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: var(--text-soft);
+
+}
+
+.system-name {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+.status-dot {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--hud-blue);
+
+    box-shadow:
+        0 0 8px var(--hud-blue),
+        0 0 18px var(--hud-blue);
+
+    animation:
+        pulseDot 1.5s infinite;
+
+}
+
+.system-center {
+
+    color: #60728d;
+
+    font-size: 9px;
+
+}
+
+.system-version {
+
+    text-align: right;
+
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.jarvis-title {
+
+    position: relative;
+
+    z-index: 3;
+
+    text-align: center;
+
+    padding-top: 60px;
+
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    transition:
+        1s ease;
+
+}
+
+.jarvis-title.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+.eyebrow {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    color: var(--hud-blue-light);
+
+}
+
+.eyebrow span {
+
+    width: 6px;
+    height: 6px;
+
+    background:
+        var(--hud-blue);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 10px var(--hud-blue);
+
+}
+
+
+.jarvis-title h1 {
+
+    margin: 18px 0 8px;
+
+    font-size:
+        clamp(
+            48px,
+            7vw,
+            105px
+        );
+
+    line-height: 0.95;
+
+    font-weight: 800;
+
+    letter-spacing: -5px;
+
+}
+
+.jarvis-title h1 strong {
+
+    color: var(--hud-blue);
+
+    text-shadow:
+        0 0 30px
+        rgba(49, 133, 255, 0.35);
+
+}
+
+.jarvis-title p {
+
+    margin: 22px 0 0;
+
+    color: var(--text-soft);
+
+    font-size: 16px;
+
+    letter-spacing: 2px;
+
+}
+
+.jarvis-title p span {
+
+    color: #53647d;
+
+}
+
+
+/* =========================================================
+   HUD STAGE
+========================================================= */
+
+.hud-stage {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+
+    max-width: 1450px;
+
+    min-height: 670px;
+
+    margin:
+        25px auto
+        0;
+
+    display: grid;
+
+    grid-template-columns:
+        250px
+        minmax(500px, 760px)
+        250px;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 40px;
+
+}
+
+
+/* =========================================================
+   SIDE PANELS
+========================================================= */
+
+.hud-panel {
+
+    position: relative;
+
+    min-height: 380px;
+
+    padding: 24px;
+
+    border:
+        1px solid
+        rgba(55, 125, 230, 0.28);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10, 22, 40, 0.72),
+            rgba(2, 7, 14, 0.50)
+        );
+
+    backdrop-filter:
+        blur(12px);
+
+    box-shadow:
+        inset 0 0 35px
+        rgba(30, 110, 220, 0.04);
+
+    opacity: 0;
+
+    transition:
+        1s ease;
+
+}
+
+.hud-panel.visible {
+
+    opacity: 1;
+
+}
+
+.panel-left {
+
+    transform:
+        translateX(-30px);
+
+}
+
+.panel-right {
+
+    transform:
+        translateX(30px);
+
+}
+
+.hud-panel.visible {
+
+    transform:
+        translateX(0);
+
+}
+
+
+.hud-panel::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -1px;
+    left: 25px;
+
+    width: 50px;
+    height: 2px;
+
+    background:
+        var(--hud-blue);
+
+    box-shadow:
+        0 0 12px
+        var(--hud-blue);
+
+}
+
+
+.panel-title {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-bottom: 20px;
+
+    border-bottom:
+        1px solid
+        var(--line);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color:
+        var(--hud-blue-light);
+
+}
+
+.panel-title span {
+
+    color: #43536a;
+
+}
+
+
+/* =========================================================
+   DIAGNOSTICS
+========================================================= */
+
+.diagnostic {
+
+    margin-top: 22px;
+
+}
+
+.diag-row {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 9px;
+
+    color: #73839a;
+
+}
+
+.diag-row b {
+
+    font-weight: normal;
+
+    color: var(--hud-blue-light);
+
+}
+
+
+.diag-line {
+
+    height: 2px;
+
+    margin-top: 8px;
+
+    background:
+        rgba(70, 120, 180, 0.12);
+
+}
+
+.diag-line i {
+
+    display: block;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #1758c9,
+            #5eb2ff
+        );
+
+    box-shadow:
+        0 0 8px
+        rgba(49, 133, 255, 0.5);
+
+    animation:
+        loadBar 2s ease forwards;
+
+}
+
+
+/* =========================================================
+   MINI CODE
+========================================================= */
+
+.mini-code {
+
+    margin-top: 35px;
+
+    padding-top: 18px;
+
+    border-top:
+        1px solid
+        var(--line);
+
+    color:
+        #53647c;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 8px;
+
+    line-height: 2;
+
+}
+
+.mini-code span {
+
+    color:
+        var(--hud-blue);
+
+}
+
+.mini-code .success {
+
+    color:
+        #65d7ff;
+
+}
+
+
+/* =========================================================
+   PROFILE PANEL
+========================================================= */
+
+.profile-name {
+
+    margin-top: 28px;
+
+    font-size: 24px;
+
+    letter-spacing: 2px;
+
+}
+
+.profile-name strong {
+
+    display: block;
+
+    color:
+        var(--hud-blue);
+
+}
+
+
+.profile-role {
+
+    margin-top: 10px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 9px;
+
+    line-height: 1.8;
+
+    color:
+        var(--text-soft);
+
+}
+
+
+.data-block {
+
+    margin-top: 28px;
+
+    display: grid;
+
+    gap: 15px;
+
+}
+
+.data-block div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+}
+
+.data-block small {
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 8px;
+
+    color:
+        #50617a;
+
+}
+
+.data-block strong {
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 9px;
+
+    font-weight: normal;
+
+    color:
+        var(--hud-blue-light);
+
+}
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.quote-box {
+
+    margin-top: 28px;
+
+    padding:
+        15px 0;
+
+    border-top:
+        1px solid
+        var(--line);
+
+    border-bottom:
+        1px solid
+        var(--line);
+
+}
+
+.quote-box span {
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color:
+        #53647c;
+
+}
+
+.quote-box p {
+
+    margin:
+        10px 0 0;
+
+    color:
+        #c9d5e7;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   SIGNAL BARS
+========================================================= */
+
+.signal {
+
+    margin-top: 25px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 4px;
+
+    height: 35px;
+
+}
+
+.signal span {
+
+    display: block;
+
+    width: 5px;
+
+    background:
+        var(--hud-blue);
+
+    box-shadow:
+        0 0 7px
+        rgba(49, 133, 255, 0.6);
+
+    animation:
+        signalPulse
+        1s infinite alternate;
+
+}
+
+.signal span:nth-child(1) {
+    height: 10px;
+}
+
+.signal span:nth-child(2) {
+    height: 20px;
+    animation-delay: .1s;
+}
+
+.signal span:nth-child(3) {
+    height: 15px;
+    animation-delay: .2s;
+}
+
+.signal span:nth-child(4) {
+    height: 28px;
+    animation-delay: .3s;
+}
+
+.signal span:nth-child(5) {
+    height: 18px;
+    animation-delay: .4s;
+}
+
+.signal span:nth-child(6) {
+    height: 32px;
+    animation-delay: .5s;
+}
+
+.signal span:nth-child(7) {
+    height: 22px;
+    animation-delay: .6s;
+}
+
+.signal span:nth-child(8) {
+    height: 29px;
+    animation-delay: .7s;
+}
+
+
+/* =========================================================
+   RESUME CORE
+========================================================= */
+
+.resume-core {
+
+    position: relative;
+
+    width: 650px;
+    height: 650px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    transition:
+        transform 0.15s ease-out;
+
+    opacity: 0;
+
+    transform:
+        scale(.92);
+
+}
+
+.resume-core.visible {
+
+    opacity: 1;
+
+    transform:
+        scale(1);
+
+}
+
+
+/* =========================================================
+   ROTATING HUD RINGS
+========================================================= */
+
+.hud-ring {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+}
+
+.ring-one {
+
+    width: 620px;
+    height: 620px;
+
+    border:
+        1px solid
+        rgba(49, 133, 255, 0.20);
+
+    border-top-color:
+        var(--hud-blue);
+
+    border-bottom-color:
+        rgba(49, 133, 255, 0.05);
+
+    animation:
+        rotateClockwise
+        18s linear infinite;
+
+}
+
+
+.ring-two {
+
+    width: 555px;
+    height: 555px;
+
+    border:
+        1px dashed
+        rgba(72, 153, 255, 0.25);
+
+    animation:
+        rotateReverse
+        24s linear infinite;
+
+}
+
+
+.ring-three {
+
+    width: 480px;
+    height: 480px;
+
+    border:
+        1px solid
+        rgba(77, 220, 255, 0.13);
+
+    border-left-color:
+        var(--hud-cyan);
+
+    animation:
+        rotateClockwise
+        12s linear infinite;
+
+}
+
+
+/* =========================================================
+   RING MARKERS
+========================================================= */
+
+.hud-marker {
+
+    position: absolute;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    color:
+        var(--hud-blue-light);
+
+    z-index: 5;
+
+}
+
+.hud-marker span {
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background:
+        var(--hud-blue);
+
+    box-shadow:
+        0 0 8px
+        var(--hud-blue);
+
+}
+
+.marker-top {
+
+    top: 4px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+}
+
+.marker-right {
+
+    right: 7px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+}
+
+.marker-bottom {
+
+    bottom: 4px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+}
+
+.marker-left {
+
+    left: 7px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+}
+
+
+/* =========================================================
+   RESUME HOLOGRAM
+========================================================= */
+
+.resume-hologram {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 370px;
+
+    padding: 12px;
+
+    background:
+        rgba(3, 9, 18, 0.86);
+
+    border:
+        1px solid
+        rgba(66, 148, 255, 0.45);
+
+    box-shadow:
+
+        0 0 0 1px
+        rgba(49, 133, 255, 0.05),
+
+        0 0 40px
+        rgba(25, 110, 255, 0.16),
+
+        inset 0 0 35px
+        rgba(40, 120, 255, 0.05);
+
+    transform:
+        perspective(1000px)
+        rotateX(1deg);
+
+}
+
+
+/* =========================================================
+   RESUME INFO
+========================================================= */
+
+.resume-top-info,
+.resume-bottom-info {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+
+    color:
+        var(--hud-blue-light);
+
+}
+
+.resume-top-info {
+
+    padding:
+        4px 3px 10px;
+
+}
+
+.resume-bottom-info {
+
+    padding:
+        10px 3px 4px;
+
+    color:
+        #54657d;
+
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.resume-image-wrap {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        #020202;
+
+    border:
+        1px solid
+        rgba(120, 180, 255, 0.18);
+
+}
+
+.resume-image {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    opacity: 0.94;
+
+    filter:
+        contrast(1.03)
+        brightness(.96);
+
+}
+
+
+/* =========================================================
+   HOLOGRAM EFFECT
+========================================================= */
+
+.hologram-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 3px,
+            rgba(50, 130, 255, 0.035) 4px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(50, 120, 255, 0.04),
+            transparent 25%,
+            transparent 75%,
+            rgba(50, 120, 255, 0.04)
+        );
+
+    mix-blend-mode:
+        screen;
+
+}
+
+
+/* =========================================================
+   SCANNING BEAM
+========================================================= */
+
+.scan-beam {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--hud-cyan),
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px
+        var(--hud-cyan);
+
+    opacity: .75;
+
+    animation:
+        scanResume
+        4s ease-in-out infinite;
+
+}
+
+
+/* =========================================================
+   CORE POINT
+========================================================= */
+
+.core-point {
+
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    border:
+        1px solid
+        var(--hud-cyan);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 20px
+        var(--hud-cyan);
+
+    z-index: 15;
+
+}
+
+.core-point span {
+
+    position: absolute;
+
+    inset: 3px;
+
+    border-radius: 50%;
+
+    background:
+        var(--hud-cyan);
+
+    box-shadow:
+        0 0 10px
+        var(--hud-cyan);
+
+    animation:
+        pulseDot 1s infinite;
+
+}
+
+
+/* =========================================================
+   CODE STREAM
+========================================================= */
+
+.code-stream {
+
+    position: relative;
+
+    z-index: 4;
+
+    max-width: 1000px;
+
+    margin:
+        -10px auto
+        20px;
+
+    display: flex;
+
+    justify-content:
+        center;
+
+    flex-wrap: wrap;
+
+    gap: 30px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color:
+        #34465e;
+
+}
+
+.code-stream span:first-child {
+
+    color:
+        var(--hud-blue);
+
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.jarvis-actions {
+
+    position: relative;
+
+    z-index: 10;
+
+    display: flex;
+
+    justify-content:
+        center;
+
+    gap: 14px;
+
+    margin-top: 12px;
+
+}
+
+.hud-button {
+
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding:
+        14px 22px;
+
+    border:
+        1px solid
+        rgba(62, 139, 255, 0.35);
+
+    background:
+        rgba(8, 18, 33, 0.70);
+
+    color:
+        #cbd8e9;
+
+    text-decoration: none;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    transition:
+        .3s ease;
+
+}
+
+.hud-button span {
+
+    color:
+        var(--hud-blue);
+
+}
+
+.hud-button:hover {
+
+    color: white;
+
+    border-color:
+        var(--hud-blue);
+
+    box-shadow:
+        0 0 25px
+        rgba(49, 133, 255, 0.18);
+
+    transform:
+        translateY(-3px);
+
+}
+
+.hud-button.primary {
+
+    background:
+        rgba(35, 105, 230, 0.12);
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.jarvis-footer {
+
+    position: relative;
+
+    z-index: 10;
+
+    margin-top: 28px;
+
+    padding-top: 15px;
+
+    border-top:
+        1px solid
+        rgba(55, 125, 230, 0.12);
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    color:
+        #344258;
+
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes rotateClockwise {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+@keyframes rotateReverse {
+
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+
+}
+
+
+@keyframes scanResume {
+
+    0% {
+        top: -2px;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: .8;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: .8;
+    }
+
+    100% {
+        top: calc(100% - 2px);
+        opacity: 0;
+    }
+
+}
+
+
+@keyframes pulseDot {
+
+    0%,
+    100% {
+        opacity: .5;
+        transform: scale(.85);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+
+}
+
+
+@keyframes loadBar {
+
+    from {
+        width: 0 !important;
+    }
+
+}
+
+
+@keyframes signalPulse {
+
+    from {
+        opacity: .35;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .hud-stage {
+
+        grid-template-columns:
+            190px
+            minmax(450px, 620px)
+            190px;
+
+        gap: 15px;
+
+    }
+
+    .resume-core {
+
+        width: 560px;
+        height: 560px;
+
+    }
+
+    .ring-one {
+
+        width: 540px;
+        height: 540px;
+
+    }
+
+    .ring-two {
+
+        width: 480px;
+        height: 480px;
+
+    }
+
+    .ring-three {
+
+        width: 420px;
+        height: 420px;
+
+    }
+
+    .resume-hologram {
+
+        width: 330px;
+
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .jarvis-resume {
+
+        padding:
+            20px;
+
+    }
+
+    .jarvis-header {
+
+        grid-template-columns:
+            1fr auto;
+
+    }
+
+    .system-center {
+
+        display: none;
+
+    }
+
+    .hud-stage {
+
+        grid-template-columns:
+            1fr;
+
+        min-height: auto;
+
+        gap: 30px;
+
+        padding-top: 25px;
+
+    }
+
+    .resume-core {
+
+        order: 1;
+
+        margin:
+            auto;
+
+    }
+
+    .panel-left {
+
+        order: 2;
+
+    }
+
+    .panel-right {
+
+        order: 3;
+
+    }
+
+    .hud-panel {
+
+        width: 100%;
+
+        max-width: 550px;
+
+        margin: auto;
+
+        min-height: auto;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .jarvis-resume {
+
+        padding:
+            15px;
+
+    }
+
+    .jarvis-title {
+
+        padding-top: 40px;
+
+    }
+
+    .jarvis-title h1 {
+
+        font-size:
+            45px;
+
+        letter-spacing:
+            -3px;
+
+    }
+
+    .jarvis-title p {
+
+        font-size:
+            12px;
+
+        line-height:
+            1.7;
+
+    }
+
+    .hud-stage {
+
+        overflow: visible;
+
+    }
+
+    .resume-core {
+
+        width: 350px;
+        height: 350px;
+
+        transform:
+            scale(.95);
+
+    }
+
+    .ring-one {
+
+        width: 345px;
+        height: 345px;
+
+    }
+
+    .ring-two {
+
+        width: 305px;
+        height: 305px;
+
+    }
+
+    .ring-three {
+
+        width: 265px;
+        height: 265px;
+
+    }
+
+    .resume-hologram {
+
+        width: 225px;
+
+        padding:
+            7px;
+
+    }
+
+    .resume-top-info,
+    .resume-bottom-info {
+
+        font-size:
+            5px;
+
+    }
+
+    .hud-marker {
+
+        font-size:
+            5px;
+
+    }
+
+    .jarvis-actions {
+
+        flex-direction:
+            column;
+
+        align-items:
+            center;
+
+    }
+
+    .hud-button {
+
+        width:
+            230px;
+
+        justify-content:
+            center;
+
+    }
+
+    .code-stream {
+
+        gap:
+            12px;
+
+        font-size:
+            6px;
+
+    }
+
+    .jarvis-footer {
+
+        flex-direction:
+            column;
+
+        gap:
+            10px;
+
+        text-align:
+            center;
+
+    }
+
+}
