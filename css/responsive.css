@@ -820,3 +820,32 @@ if (year) {
     }
 
 }
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width:768px){
+
+    .hero-grid{
+        display:flex
+        flex-direction:column;
+        gap:40px;
+    }
+
+    .hero-buttons{
+        margin-bottom:40px;
+    }
+
+    .hero-image{
+        margin-top:40px;
+        display:flex;
+        justify-content:center;
+    }
+
+    .image-wrapper{
+        width:100%;
+        max-width:320px;
+        margin:0 auto;
+    }
+
+}
