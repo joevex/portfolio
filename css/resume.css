@@ -2120,4 +2120,31 @@ body {
     .ai-quote {
         max-width: 240px;
     }
+<<<<<<< HEAD
 }
+=======
+@media (max-width: 768px) {
+
+    .ai-resume-system {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .resume-image-frame {
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    .resume-image {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        object-fit: contain !important;
+    }
+}
+>>>>>>> 211f2d8 (Fix resume mobile layout)
